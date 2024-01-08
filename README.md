@@ -1,3 +1,7 @@
+# MERN-course-notes-app-frontend
+
+### [Backend](https://github.com/iv4nst/MERN-course-notes-app-backend)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
