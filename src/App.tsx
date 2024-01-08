@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
+import axios from 'axios'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // use state to rerender UI
+    const [notesList, setNotesList] = useState<Array<any>>([])
+
+    const getNotes = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/notes')
+            setNotesList(response.data.notes) // updates the "notesList"
+            console.log(notesList)
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    return (
+        <div className="App">
+            <div>Notes App</div>
+            <div>
+                <button onClick={getNotes}>Click me!</button>
+            </div>
+            <div>
+                {/* show details of the first element */}
+                <h4>{notesList[0]?.text}</h4> {/* ? checks if exists */}
+                <h5>{notesList[0]?.link}</h5>
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App
