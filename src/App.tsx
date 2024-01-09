@@ -21,19 +21,21 @@ function App() {
     //     }
     // }
 
-    console.log(notesList);
-    
+    console.log(notesList)
 
     return (
         <div className="App">
             <div>Notes App</div>
-            <div>
-                {/* <button onClick={getNotes}>Click me!</button> */}
-            </div>
-            <div>
-                {/* show details of the first element */}
-                <h4>{notesList[0]?.text}</h4> {/* ? checks if exists */}
-                <h5>{notesList[0]?.link}</h5>
+            <div className="notes-list">
+                {notesList.map((note, index) => {
+                    return (
+                        <div key={index}>
+                            {/* show details of the first element */}
+                            <h4>{note?.text}</h4> {/* ? checks if exists */}
+                            <h5>{note?.link}</h5>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
