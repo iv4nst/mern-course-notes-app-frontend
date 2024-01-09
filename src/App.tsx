@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 // import axios from 'axios'
 import DUMMY_NOTES from './DUMMY_NOTES'
+import Note from './components/Note/Note'
 
 function App() {
     // use state to rerender UI
@@ -27,14 +28,8 @@ function App() {
         <div className="App">
             <div>Notes App</div>
             <div className="notes-list">
-                {notesList.map((note, index) => {
-                    return (
-                        <div key={index}>
-                            {/* show details of the first element */}
-                            <h4>{note?.text}</h4> {/* ? checks if exists */}
-                            <h5>{note?.link}</h5>
-                        </div>
-                    )
+                {notesList.map((noteItem, index) => {
+                    return <Note note={noteItem} key={index} />
                 })}
             </div>
         </div>
