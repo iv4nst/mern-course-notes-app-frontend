@@ -1,0 +1,60 @@
+.note {
+    position: relative;
+
+    background-color: #feff9c;
+    color: rgb(0, 0, 0);
+
+    height: 10em;
+    width: 10em;
+    margin: 1em;
+    padding: 1em;
+
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+
+    /* rotate the note element */
+    transform: rotate(-6deg);
+
+    z-index: 1;
+
+    transition: all ease 0.3s;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+/* every even child (2, 4, 6...) */
+.note:nth-child(even) {
+    transform: rotate(4deg);
+
+    position: relative; /* give it some spacing based on relative positioning */
+    top: 5px;
+
+    background-color: #7afcff;
+}
+/* every third-numbered child (3, 6, 9...) */
+.note:nth-child(3n) {
+    transform: rotate(-3deg);
+
+    position: relative; /* give it some spacing based on relative positioning */
+    top: -5px;
+
+    background-color: #ff7eb9;
+}
+
+.note:hover {
+    transform: scale(1.5);
+    z-index: 5;
+
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.note__text {
+    flex: 1; /* takes maximum space until we have something left */
+}
+
+.note__link {
+    display: none;
+}
