@@ -4,16 +4,18 @@ import './Note.css'
 
 type Props = {
     note: INote
-}
-
-const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
-    console.log('Note text changed')
-    let textContent = event.currentTarget.textContent
-    console.log(textContent)
+    onNoteUpdate: Function
 }
 
 // FC - functional component
-const Note: FC<Props> = ({ note }) => {
+const Note: FC<Props> = ({ note, onNoteUpdate }) => {
+    const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
+        console.log('Note text changed')
+        let textContent = event.currentTarget.textContent
+        console.log(textContent)
+        onNoteUpdate(textContent)
+    }
+
     return (
         <div className="note">
             {/* show details of the first element */}

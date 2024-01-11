@@ -24,11 +24,21 @@ function App() {
 
     console.log(notesList)
 
+    const updateNoteItem = (text: string) => {
+        console.log(`Value updated in the app component: ${text}`)
+    }
+
     return (
         <div className="App">
             <div className="notes-list">
                 {notesList.map((noteItem, index) => {
-                    return <Note note={noteItem} key={index} />
+                    return (
+                        <Note
+                            note={noteItem}
+                            onNoteUpdate={updateNoteItem}
+                            key={index}
+                        />
+                    )
                 })}
             </div>
         </div>
