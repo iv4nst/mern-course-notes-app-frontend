@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mern-course-notes-app-frontend/static/css/main.9294434f.css",
+    "main.js": "/mern-course-notes-app-frontend/static/js/main.2cb87369.js",
+    "static/js/787.1c8929ba.chunk.js": "/mern-course-notes-app-frontend/static/js/787.1c8929ba.chunk.js",
+    "index.html": "/mern-course-notes-app-frontend/index.html",
+    "main.9294434f.css.map": "/mern-course-notes-app-frontend/static/css/main.9294434f.css.map",
+    "main.2cb87369.js.map": "/mern-course-notes-app-frontend/static/js/main.2cb87369.js.map",
+    "787.1c8929ba.chunk.js.map": "/mern-course-notes-app-frontend/static/js/787.1c8929ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9294434f.css",
+    "static/js/main.2cb87369.js"
+  ]
+}
