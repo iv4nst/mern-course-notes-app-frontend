@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-// import axios from 'axios'
-import DUMMY_NOTES from './DUMMY_NOTES'
+import axios from 'axios'
+// import DUMMY_NOTES from './DUMMY_NOTES'
 import Note from './components/Note/Note'
 import INote from './interfaces/note.interface'
 
@@ -11,13 +11,14 @@ function App() {
 
     // runs when App component renders the first time
     useEffect(() => {
-        const listFromStorageString = localStorage.getItem('my-notes') // get from local storage
-        if (listFromStorageString) {
-            const listFromStorageArray = JSON.parse(listFromStorageString)
-            setNotesList(listFromStorageArray) // save from local storage
-        } else {
-            setNotesList(DUMMY_NOTES) // otherwise save DUMMY_NOTES
-        }
+        // const listFromStorageString = localStorage.getItem('my-notes') // get from local storage
+        // if (listFromStorageString) {
+        //     const listFromStorageArray = JSON.parse(listFromStorageString)
+        //     setNotesList(listFromStorageArray) // save from local storage
+        // } else {
+        //     setNotesList(DUMMY_NOTES) // otherwise save DUMMY_NOTES
+        // }
+        getNotes()
     }, []) // [] - not dependent on anything (only runs the 1st time)
 
     // store to localStorage
@@ -28,15 +29,17 @@ function App() {
         localStorage.setItem('my-notes', notesListString)
     }, [notesList])
 
-    // const getNotes = async () => {
-    //     try {
-    //         const response = await axios.get('http://localhost:5000/notes')
-    //         setNotesList(response.data.notes) // updates the "notesList"
-    //         console.log(notesList)
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
-    // }
+    const getNotes = async () => {
+        try {
+            const response = await axios.get(
+                'https://mern-course-notes-app.onrender.com/api/v1/notes'
+            )
+            setNotesList(response.data.notes) // updates the "notesList"
+            console.log(notesList)
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
     console.log(notesList)
 
